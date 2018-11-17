@@ -427,16 +427,16 @@ public class NumberProgressBar extends View {
         if (by > 0) {
             setProgress(getProgress() + by);
         }
-
-        if(mListener != null){
-            mListener.onProgressChange(getProgress(), getMax());
-        }
     }
 
     public void setProgress(int progress) {
         if (progress <= getMax() && progress >= 0) {
             this.mCurrentProgress = progress;
             invalidate();
+
+            if(mListener != null){
+                mListener.onProgressChange(getProgress(), getMax());
+            }
         }
     }
 
